@@ -4,7 +4,7 @@ import { CallInput, TokenBalances, TokenBalancesAndAllowances, UniswapReservesDa
 import { toProvider } from "./utils";
 import { multiCall } from './generic';
 import { getBalances, getBalancesAndAllowances } from "./tokens";
-import { getReserves } from "./uniswap.ts";
+import { getReserves } from "./uniswap";
 
 export class MultiCall {
   private provider: Provider;
