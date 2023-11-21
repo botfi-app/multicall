@@ -1,6 +1,4 @@
-import { Provider, Web3Provider } from '@ethersproject/providers';
-import { JsonFragment } from "@ethersproject/abi";
-import { Interface } from "ethers/lib/utils";
+import { JsonFragment, Interface, Provider, BrowserProvider as Web3Provider } from "ethers";
 
 export function toProvider(provider: any): Provider {
   if (Object.keys(provider).includes('currentProvider')) {

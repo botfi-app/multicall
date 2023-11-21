@@ -1,10 +1,12 @@
-import { BigNumber } from "ethers";
-import { defaultAbiCoder } from "ethers/lib/utils";
+import { AbiCoder } from "ethers";
 import { toProvider } from "./utils";
 
 import { UniswapReservesData } from './types';
 
 import { UniswapReservesGetter } from './bytecode.json'
+
+const defaultAbiCoder = AbiCoder.defaultAbiCoder()
+
 
 export async function getReserves(provider_: any, pairs: string[]): Promise<[number, UniswapReservesData]> {
   const provider = toProvider(provider_);
@@ -21,9 +23,9 @@ export async function getReserves(provider_: any, pairs: string[]): Promise<[num
     const t_bytes = decodedData.slice(28);
     const pair = pairs[i];
     allReserves[pair] = {
-      reserve0: BigNumber.from(r0_bytes),
-      reserve1: BigNumber.from(r1_bytes),
-      blockTimestampLast: BigNumber.from(t_bytes).toNumber()
+      reserve0: BigInt('0x'+r0_bytes.toString()),
+      reserve1: BigInt('0x'+r1_bytes.toString()),
+      blockTimestampLast: Number(BigInt('0x'+t_bytes.toString()))
     };
   }
   return [blockNumber.toNumber(), allReserves];

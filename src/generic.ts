@@ -1,9 +1,11 @@
-import { JsonFragment } from "@ethersproject/abi";
-import { defaultAbiCoder, Interface } from "ethers/lib/utils";
+import { JsonFragment } from "ethers";
+import { AbiCoder, Interface } from "ethers";
 
 import { CallInput } from './types';
 import { MultiCall as bytecode, MultiCallStrict as bytecodeStrict } from "./bytecode.json";
 import { isInterface, isJsonFragmentArray, toProvider } from './utils';
+
+const defaultAbiCoder = AbiCoder.defaultAbiCoder();
 
 export async function multiCall(
   provider_: any,

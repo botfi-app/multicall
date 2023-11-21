@@ -1,6 +1,4 @@
-import { JsonFragment } from "@ethersproject/abi";
-import { Interface } from "ethers/lib/utils";
-import { BigNumber } from "ethers";
+import { Interface, JsonFragment} from "ethers";
 
 export type CallInput = {
   target: string;
@@ -10,8 +8,8 @@ export type CallInput = {
 }
 
 export interface UniswapPairReserves {
-  reserve0: BigNumber;
-  reserve1: BigNumber;
+  reserve0: BigInt;
+  reserve1: BigInt;
   blockTimestampLast: number;
 }
 
@@ -20,12 +18,12 @@ export interface UniswapReservesData {
 }
 
 export interface TokenBalances {
-  [key: string]: BigNumber;
+  [key: string]: BigInt;
 }
 
 export interface TokenBalanceAndAllowance {
-  balance: BigNumber;
-  allowance: BigNumber;
+  balance: BigInt;
+  allowance: BigInt;
 }
 
 export interface TokenBalancesAndAllowances {

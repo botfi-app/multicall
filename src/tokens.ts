@@ -1,9 +1,10 @@
-import { BigNumber } from "ethers";
-import { defaultAbiCoder } from "ethers/lib/utils";
+import { AbiCoder } from "ethers";
 import { toProvider } from "./utils";
 
 import { TokenBalances, TokenBalancesAndAllowances } from './types';
 import { MultiTokenBalanceAndAllowanceGetter, MultiTokenBalanceGetter } from './bytecode.json'
+
+const defaultAbiCoder = AbiCoder.defaultAbiCoder()
 
 export async function getBalances(
   provider_: any,

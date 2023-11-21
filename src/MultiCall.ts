@@ -1,15 +1,14 @@
-import { JsonFragment } from "@ethersproject/abi";
-import { Provider } from "@ethersproject/providers";
-import { Interface } from "ethers/lib/utils";
+import { Interface, Provider, JsonFragment } from "ethers";
 
 import { CallInput, TokenBalances, TokenBalancesAndAllowances, UniswapReservesData } from './types';
 import { toProvider } from "./utils";
 import { multiCall } from './generic';
 import { getBalances, getBalancesAndAllowances } from "./tokens";
-import { getReserves } from "./uniswap";
+import { getReserves } from "./uniswap.ts";
 
 export class MultiCall {
   private provider: Provider;
+
   constructor(provider: any) {
     this.provider = toProvider(provider);
   }
